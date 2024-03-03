@@ -8,6 +8,7 @@ import Event from './pages/Event/Event';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
+
   return (
     <>
       <Routes>
