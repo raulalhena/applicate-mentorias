@@ -17,6 +17,16 @@ export class UsersService {
     }
   }
 
+  async getAllUsers() {
+    try {
+      const allUsers = await this.userModel.find();
+
+      return allUsers;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   async getUserById(id: ObjectId) {
     try {
       const user = await this.userModel.findOne({ _id: id });
