@@ -1,41 +1,41 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import LoginButton from "../../components/LoginButton/LoginButton";
+import EventsList from "../../components/EventsList/EventsList";
 
 function Home() {
 
   const [ user, setUser ] = useState(null);
 
   const loginUser = async () => {
-    const resp = await fetch('http://localhost/auth', {
+
+    console.log('login')
+    const resp = await fetch('http://localhost:3000/auth', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        email: 'r@example.com',
+        email: 'ra@example.com',
         password: '1234'
       })
     });
-    const res = resp.json();
+    const res = await resp.json();
     setUser(res);
+  };
+
+  const logoutUser = async () => {
+    setUser(null);
+  };
+
+  const props = {
+    user: user,
+    loginUser: loginUser,
+    logoutUser: logoutUser
   }
 
   return (
     <div>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-      { !user ?
-        <LoginButton loginUser={ loginUser } />
-        :
-        <>
-          <li><Link to='/user' >User</Link></li>
-          <li><Link to='/users' >Users</Link></li>
-          <li><Link to='/events' >Events</Link></li>
-          <li><Link to='/event' >Event</Link></li>
-        </>
-      }
-      </ul>
+        <div>User: { user && user.email }</div>
+        <EventsList props={ props }/>
     </div>
   )
 }

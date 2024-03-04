@@ -23,10 +23,7 @@ export class AuthService {
 
       const userPassword = userFound.password;
 
-      console.log(password, userPassword)
-
       const checkedPassword = await compare(password, userPassword);
-      console.log(checkedPassword)
       if (!checkedPassword)
         throw new HttpException('Incorrect credentials', HttpStatus.FORBIDDEN);
 

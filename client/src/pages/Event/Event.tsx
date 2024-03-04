@@ -1,8 +1,12 @@
 import React from 'react'
+import EventDetail from '../../components/EventDetail/EventDetail'
 
 function Event() {
   return (
-    <div>Event</div>
+    <div>
+      Event
+      <EventDetail />
+    </div>
   )
 }
 

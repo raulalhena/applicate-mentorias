@@ -1,0 +1,9 @@
+.event-card {
+  max-width: 300px;
+  max-height: 50px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  color: black;
+  padding: 30px;
+}
