@@ -1,6 +1,10 @@
-import React from 'react'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext';
 
-function LoginButton({ loginUser }) {
+function LoginButton() {
+
+  const { loginUser } = useContext(AuthContext);
+
   return (
     <div>
       <button onClick={loginUser}>Login</button>

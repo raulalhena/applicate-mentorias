@@ -6,20 +6,21 @@ import User from './pages/User/User';
 import Events from './pages/Events/Events';
 import Event from './pages/Event/Event';
 import NotFound from './pages/NotFound/NotFound';
+import { AuthContextProvider } from './providers/AuthContextProvider';
 
 function App() {
 
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/users' element={<Users />} />
-        <Route path='/user' element={<User />} />
-        <Route path='/events' element={<Events />} />
-        <Route path='/event' element={<Event />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </>
+      <AuthContextProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/user' element={<User />} />
+          <Route path='/events' element={<Events />} />
+          <Route path='/event' element={<Event />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </AuthContextProvider>
   );
 }
 

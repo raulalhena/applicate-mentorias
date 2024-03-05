@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './EventCard.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
-function EventCard({ propEvent, user }) {
+function EventCard({ propEvent }) {
 
+  const { user } = useContext(AuthContext);
   const { event } = propEvent;
 
   return (
@@ -15,8 +17,8 @@ function EventCard({ propEvent, user }) {
         <div>
           Description: { event.description }
         </div>
-        { user !== null ?
-          <Link to='/event' state={{ user: user, event: event }}>Detalle</Link>
+        { user !== undefined ?
+          <Link to='/event' state={{ event: event }}>Detalle</Link>
           :
           <></>
         }

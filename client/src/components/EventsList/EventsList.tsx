@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './EventsList.css';
 import LoginButton from '../LoginButton/LoginButton';
 import EventCard from '../EventCard/EventCard';
 import LogoutButton from '../LogoutButton/LogoutButton';
+import { AuthContext } from '../../contexts/AuthContext';
 
-function EventsList({ props }) {
+function EventsList() {
 
-  const { user, loginUser, logoutUser } = props;
+  const { user } = useContext(AuthContext);
+  console.log('user ', user)
 
   const [ events, setEvents ] = useState(null);
 
@@ -24,16 +26,16 @@ function EventsList({ props }) {
   return (
     <div>
       <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-        { user !== null ? 
-          <LogoutButton logoutUser={logoutUser} />
+        { user !== undefined ? 
+          <LogoutButton />
         :
-          <LoginButton loginUser={loginUser}/>
+          <LoginButton />
         }
       </div>
       <div className='event-list-container'>
       { events !== null ?
         events.map((event) => (
-          <EventCard propEvent={{ event }} user={ user } key={event._id}/>
+          <EventCard propEvent={{ event }} key={event._id}/>
         ))
         :
         <></>

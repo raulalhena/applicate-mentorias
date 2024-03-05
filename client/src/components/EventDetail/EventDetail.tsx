@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext';
 
 function EventDetail() {
 
-  const location = useLocation();
+  const { user } = useContext(AuthContext);
 
-  const { user, event } = location.state;
+  const location = useLocation();
+  const { event } = location.state;
 
   return (
     <div>
