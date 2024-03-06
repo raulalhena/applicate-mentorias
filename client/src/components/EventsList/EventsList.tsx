@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './EventsList.css';
 import LoginButton from '../LoginButton/LoginButton';
 import EventCard from '../EventCard/EventCard';

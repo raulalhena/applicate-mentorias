@@ -1,4 +1,3 @@
-import React from 'react'
 import './EventCard.css'
 import { Link } from 'react-router-dom';
 

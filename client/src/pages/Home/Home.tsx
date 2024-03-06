@@ -6,8 +6,6 @@ function Home() {
   const [ user, setUser ] = useState(null);
 
   const loginUser = async () => {
-
-    console.log('login')
     const resp = await fetch('http://localhost:3000/auth', {
       method: 'POST',
       headers: {
