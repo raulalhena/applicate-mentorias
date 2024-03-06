@@ -8,8 +8,6 @@ import { AuthContext } from '../../contexts/AuthContext';
 function EventsList() {
 
   const { user } = useContext(AuthContext);
-  console.log('user ', user)
-
   const [ events, setEvents ] = useState(null);
 
   const getAllEvents = async () => {
